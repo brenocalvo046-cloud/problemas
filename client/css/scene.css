@@ -1,0 +1,71 @@
+/* ─────────── Cenário: quarto à noite, janela com cidade, mesa e notebook ─────────── */
+#scene { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: radial-gradient(90% 70% at 50% 6%, #0b2a40 0%, transparent 70%), linear-gradient(#030a14, #02060c); }
+
+.scene__window {
+  position: absolute; left: 5vw; right: 5vw; top: 4vh; bottom: 30vh; border-radius: 6px; overflow: hidden; background: #04101c;
+  box-shadow: 0 0 0 clamp(6px, .8vw, 12px) #07101a, 0 0 0 calc(clamp(6px, .8vw, 12px) + 1px) rgba(130, 225, 255, .14), 0 0 90px rgba(25, 130, 170, .28), inset 0 0 70px rgba(0, 0, 0, .55);
+}
+.scene__city { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.scene__fog {
+  position: absolute; inset: auto 0 0 0; height: 45%;
+  background: radial-gradient(60% 100% at 20% 100%, rgba(60, 200, 230, .2), transparent 70%), radial-gradient(50% 100% at 80% 100%, rgba(60, 200, 230, .13), transparent 70%);
+  animation: fog 20s ease-in-out infinite alternate;
+}
+@keyframes fog { from { transform: translateX(-3%); } to { transform: translateX(3%); } }
+.scene__glass { position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255, 255, 255, .08) 0%, rgba(255, 255, 255, 0) 26%, rgba(255, 255, 255, 0) 62%, rgba(120, 220, 255, .07) 100%); }
+.scene__mullion { position: absolute; top: 0; bottom: 0; width: clamp(6px, .8vw, 12px); background: linear-gradient(90deg, #040a12, #10202f 50%, #040a12); box-shadow: 0 0 20px rgba(0, 0, 0, .6); }
+.scene__mullion--a { left: 33.2%; }
+.scene__mullion--b { left: 66.4%; }
+.scene__transom { position: absolute; left: 0; right: 0; top: 64%; height: clamp(6px, .8vw, 12px); background: linear-gradient(#040a12, #10202f 50%, #040a12); }
+.scene__sill { position: absolute; left: 3.6vw; right: 3.6vw; bottom: calc(30vh - 6px); height: 14px; border-radius: 4px; background: linear-gradient(#17293a, #0a141f); box-shadow: 0 8px 24px rgba(0, 0, 0, .6); }
+.scene__desk {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 30vh; border-top: 1px solid rgba(130, 225, 255, .12);
+  background: linear-gradient(180deg, #0a1927 0%, #060f19 28%, #03080f 100%);
+}
+.scene__desk::before {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .013) 0 2px, transparent 2px 9px), radial-gradient(70% 90% at 50% 0%, rgba(59, 232, 255, .13), transparent 70%);
+}
+.scene__lamp { position: absolute; left: -8vw; bottom: 6vh; width: 40vw; height: 64vh; background: radial-gradient(closest-side, rgba(255, 178, 90, .13), transparent); pointer-events: none; }
+.scene__vignette { position: absolute; inset: 0; background: radial-gradient(120% 100% at 50% 40%, transparent 52%, rgba(0, 0, 0, .7)); pointer-events: none; }
+
+/* ─────────── Notebook ─────────── */
+.stage { position: relative; z-index: 2; min-height: 100dvh; display: flex; align-items: flex-end; justify-content: center; padding: clamp(10px, 3vh, 32px) 0 clamp(14px, 3.6vh, 40px); }
+.laptop { width: min(1120px, calc(100vw - 96px)); display: flex; flex-direction: column; align-items: center; filter: drop-shadow(0 40px 50px rgba(0, 0, 0, .6)); }
+.lid {
+  width: 100%; position: relative; padding: 14px 14px 20px; border-radius: 24px 24px 8px 8px;
+  background: linear-gradient(165deg, #1d2f41 0%, #0d1824 38%, #0a121c 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08), inset 0 2px 0 rgba(255, 255, 255, .12);
+}
+.lid::before { content: ""; position: absolute; top: 6px; left: 50%; width: 5px; height: 5px; border-radius: 50%; transform: translateX(-50%); background: #0a1620; box-shadow: inset 0 0 2px rgba(59, 232, 255, .35), 0 0 0 2px #060d14; }
+.screen {
+  position: relative; display: flex; flex-direction: column; overflow: hidden; border-radius: 10px;
+  height: clamp(540px, calc(100dvh - 200px), 740px);
+  background: radial-gradient(120% 90% at 50% 0%, #0a2236 0%, #061321 55%, #030a14 100%);
+  box-shadow: inset 0 0 0 1px rgba(59, 232, 255, .1), inset 0 0 60px rgba(0, 0, 0, .55), 0 0 44px rgba(59, 232, 255, .09);
+}
+.screen::after { /* reflexo de vidro + linhas de varredura */
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 70;
+  background: linear-gradient(115deg, rgba(255, 255, 255, .045), transparent 28%), repeating-linear-gradient(0deg, rgba(255, 255, 255, .014) 0 1px, transparent 1px 3px);
+}
+.base { width: calc(100% + 40px); height: 16px; margin-top: -1px; position: relative; border-radius: 2px 2px 26px 26px / 2px 2px 16px 16px; background: linear-gradient(#b7c3cf, #7b8896 30%, #364250 85%, #222b35); box-shadow: inset 0 1px 0 #d4dde6; }
+.base__notch { position: absolute; top: 0; left: 50%; width: 16%; height: 6px; transform: translateX(-50%); border-radius: 0 0 10px 10px; background: linear-gradient(#27323d, #3a4753); }
+
+.viewport { position: relative; flex: 1; min-height: 0; overflow: auto; }
+.overlay { position: absolute; inset: 0; z-index: 60; pointer-events: none; }
+.overlay.is-open { pointer-events: auto; }
+
+/* Tablet: moldura fina */
+@media (max-width: 899px) {
+  .stage { padding: 8px; align-items: stretch; }
+  .laptop { width: 100%; filter: none; }
+  .lid { padding: 6px; border-radius: 18px; flex: 1; display: flex; }
+  .lid::before, .base { display: none; }
+  .screen { height: auto; min-height: calc(100dvh - 16px); flex: 1; border-radius: 13px; }
+}
+/* Celular: tela cheia */
+@media (max-width: 600px) {
+  .stage { padding: 0; }
+  .lid { padding: 0; border-radius: 0; background: none; box-shadow: none; }
+  .screen { min-height: 100dvh; height: 100dvh; border-radius: 0; box-shadow: none; }
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#02060c">
+  <meta name="description" content="PROBLEMAS — duelo em tempo real: crie uma senha secreta e descubra a do adversário antes que ele descubra a sua.">
+  <title>PROBLEMAS — adivinhe a senha do adversário</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/scene.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/screens.css">
+</head>
+<body>
+  <div id="scene" aria-hidden="true">
+    <div class="scene__window">
+      <canvas id="city" class="scene__city"></canvas>
+      <div class="scene__fog"></div>
+      <div class="scene__glass"></div>
+      <div class="scene__mullion scene__mullion--a"></div>
+      <div class="scene__mullion scene__mullion--b"></div>
+      <div class="scene__transom"></div>
+    </div>
+    <div class="scene__sill"></div>
+    <div class="scene__desk"></div>
+    <div class="scene__lamp"></div>
+    <div class="scene__vignette"></div>
+  </div>
+
+  <div class="stage">
+    <div class="laptop">
+      <div class="lid">
+        <div class="screen" id="screen">
+          <header id="titlebar" class="titlebar"></header>
+          <main id="viewport" class="viewport"></main>
+          <div id="overlay" class="overlay"></div>
+        </div>
+      </div>
+      <div class="base"><div class="base__notch"></div></div>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <noscript><p style="position:fixed;inset:0;display:grid;place-items:center;color:#fff">Ative o JavaScript para jogar PROBLEMAS.</p></noscript>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
